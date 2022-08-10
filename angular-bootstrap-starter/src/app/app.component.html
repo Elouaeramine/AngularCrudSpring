@@ -1,0 +1,36 @@
+
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col" >First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Age</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let person of  allPersons">
+      <td>{{ person.firstName }}</td>
+      <td>{{ person.lastName }}</td>
+      <td>{{ person.age | number }}</td>
+      <td><button type="button" class="btn btn-danger btn-sm"  (click)="delete(person.id)">delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<form #loginForm="ngForm" (submit)="submitData(loginForm.value)">
+  <div class="main">
+    <div class="input-fields">
+      <input name="firstName" ngModel placeholder="First Name" id="firstName" type="text" class="input-field" />
+    </div>
+    <div class="input-fields">
+      <input name="lastName" ngModel placeholder="Last Name" id="lastName" type="text" class="input-field" />
+    </div>
+    <div class="input-fields">
+      <input name="age" ngModel placeholder="Age" id="age" type="number" class="input-field" />
+    </div>
+    <button type="submit">Add Person </button>
+  </div>
+</form>
